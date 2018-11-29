@@ -14,16 +14,16 @@ import android.webkit.WebView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-
+import java.util.List;
 
 
 public class NewsRecyclerViewAdapter extends RecyclerView.Adapter<NewsRecyclerViewAdapter.NewsViewHolder>  {
     Context mContext;
-    ArrayList<NewsItem> mNewsItems;
+    List<NewsItem> mNewsItems;
+//    private NewsItemViewModel newsitemviewmodel;
 
-    public NewsRecyclerViewAdapter(Context mContext, ArrayList<NewsItem> mNewsItems) {
+    public NewsRecyclerViewAdapter(Context mContext) {
         this.mContext = mContext;
-        this.mNewsItems = mNewsItems;
     }
 
     @Override
@@ -42,9 +42,19 @@ public class NewsRecyclerViewAdapter extends RecyclerView.Adapter<NewsRecyclerVi
         holder.bind(position);
     }
 
+    void setNewsItems(List<NewsItem> newsitems)
+    {
+        mNewsItems = newsitems;
+        notifyDataSetChanged();
+
+    }
+
     @Override
     public int getItemCount() {
-        return mNewsItems.size();
+        if(mNewsItems != null)
+            return mNewsItems.size();
+        else
+            return 0;
     }
 
 
@@ -67,7 +77,7 @@ public class NewsRecyclerViewAdapter extends RecyclerView.Adapter<NewsRecyclerVi
             title.setTextColor(Color.rgb(0,0,0));
             description.setText("Description: ".concat(mNewsItems.get(listIndex).getDescription()));
             description.setTextColor(Color.rgb(50, 50, 50));
-            date.setText("Date: ".concat(mNewsItems.get(listIndex).getPublishedAt().substring(0, mNewsItems.get(listIndex).getPublishedAt().indexOf("T")).concat("\n")));
+            date.setText("Date: ".concat(mNewsItems.get(listIndex).getPublishedAt()).concat("\n"));
             date.setTextColor(Color.rgb(112, 112, 112));
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
