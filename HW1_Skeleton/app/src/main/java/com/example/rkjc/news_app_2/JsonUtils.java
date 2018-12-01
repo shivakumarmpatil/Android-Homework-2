@@ -16,7 +16,7 @@ public class JsonUtils {
 
             for(int i = 0; i < items.length(); i++){
                 JSONObject item = items.getJSONObject(i);
-                newsItemsList.add(new NewsItem(item.getString("title"), item.getString("description"), item.getString("url"), item.getString("publishedAt")));
+                newsItemsList.add(new NewsItem(item.getString("title"), item.getString("description"), item.getString("url"), item.getString("publishedAt"), item.getString("urlToImage")));
             }
         } catch (JSONException e) {
             e.printStackTrace();

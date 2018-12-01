@@ -1,26 +1,220 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@drawable/border"
-    android:padding="10dip">
-    <TextView
-        android:id="@+id/title"
+    android:paddingLeft="10dp"
+    android:paddingRight="20dp"
+    android:paddingTop="10dp"
+    android:paddingBottom="20dp"
+    android:gravity="left">
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/description"
+        android:layout_margin="10dp"
+        app:cardCornerRadius="4dp"
+        app:cardElevation="1dp">
+        <ImageView
+            android:id="@+id/thumburl"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_gravity="top"
+            android:scaleType="centerCrop"/>
+    </android.support.v7.widget.CardView>
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textStyle="italic" />
+        android:layout_gravity="center"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:typeface="sans"
+            android:textStyle="normal"
+            android:layout_margin="10dp"/>
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textSize="12sp"
+            android:typeface="sans"
+            android:textStyle="normal"
+            android:layout_margin="10dp"/>
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="right"
+            android:textSize="12sp"
+            android:typeface="sans"
+            android:textStyle="normal"
+            android:layout_margin="10dp"/>
 
-    <TextView
-        android:id="@+id/date"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textStyle="bold" />
-
+    </LinearLayout>
+    </android.support.v7.widget.CardView>
 </LinearLayout>
+<!--&lt;!&ndash;<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"&ndash;&gt;-->
+    <!--&lt;!&ndash;xmlns:card_view="http://schemas.android.com/apk/res-auto"&ndash;&gt;-->
+    <!--&lt;!&ndash;xmlns:tools="http://schemas.android.com/tools"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:id="@+id/linearLayout"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_height="match_parent">&ndash;&gt;-->
+    <!--&lt;!&ndash;&lt;!&ndash; A CardView that contains a TextView &ndash;&gt;&ndash;&gt;-->
+    <!--&lt;!&ndash;<android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:id="@+id/card_view"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_height="match_parent"&ndash;&gt;-->
+        <!--&lt;!&ndash;card_view:cardCornerRadius="10dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;card_view:layout_constraintBottom_toBottomOf="parent"&ndash;&gt;-->
+        <!--&lt;!&ndash;card_view:layout_constraintEnd_toEndOf="parent"&ndash;&gt;-->
+        <!--&lt;!&ndash;card_view:layout_constraintHorizontal_bias="0.0"&ndash;&gt;-->
+        <!--&lt;!&ndash;card_view:layout_constraintStart_toStartOf="parent"&ndash;&gt;-->
+        <!--&lt;!&ndash;card_view:layout_constraintTop_toTopOf="parent"&ndash;&gt;-->
+        <!--&lt;!&ndash;card_view:layout_constraintVertical_bias="1.0"&ndash;&gt;-->
+        <!--&lt;!&ndash;&gt;&ndash;&gt;-->
+
+        <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+            <!--&lt;!&ndash;android:id="@+id/title"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_width="201dp"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_height="104dp"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_gravity="top|end"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:textStyle="bold" />&ndash;&gt;-->
+
+
+        <!--&lt;!&ndash;<ImageView&ndash;&gt;-->
+            <!--&lt;!&ndash;android:id="@+id/thumburl"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_width="184dp"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_height="104dp" />&ndash;&gt;-->
+
+        <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+            <!--&lt;!&ndash;android:id="@+id/date"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_height="40dp"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_gravity="center_vertical"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:textAlignment="viewStart"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:textStyle="bold" />&ndash;&gt;-->
+
+        <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+            <!--&lt;!&ndash;android:id="@+id/description"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_height="105dp"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_gravity="bottom"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:textStyle="italic" />&ndash;&gt;-->
+
+
+    <!--&lt;!&ndash;</android.support.v7.widget.CardView>&ndash;&gt;-->
+<!--&lt;!&ndash;</android.support.constraint.ConstraintLayout>&ndash;&gt;-->
+
+
+<!--<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+    <!--xmlns:tools="http://schemas.android.com/tools"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:orientation="vertical"-->
+    <!--android:padding="10dp">-->
+    <!--&lt;!&ndash;<android.support.v7.widget.CardView&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_height="match_parent"&ndash;&gt;-->
+    <!--&lt;!&ndash;xmlns:card_view="http://schemas.android.com/apk/res-auto"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:id="@+id/card_view"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_gravity="center"&ndash;&gt;-->
+    <!--&lt;!&ndash;card_view:cardCornerRadius="8dp">&ndash;&gt;-->
+
+    <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+    <!--&lt;!&ndash;android:id="@+id/title"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_height="101dp"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:padding="10dp"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:textStyle="bold" />&ndash;&gt;-->
+
+    <!--&lt;!&ndash;<ImageView&ndash;&gt;-->
+    <!--&lt;!&ndash;android:id="@+id/thumburl"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_width="451dp"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_height="151dp"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_gravity="top|center"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:padding="10dp"&ndash;&gt;-->
+    <!--&lt;!&ndash;tools:layout_margin="80dp" />&ndash;&gt;-->
+
+
+    <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+    <!--&lt;!&ndash;android:id="@+id/description"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_height="229dp"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_gravity="bottom"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:padding="10dp"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:textStyle="italic" />&ndash;&gt;-->
+
+    <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+    <!--&lt;!&ndash;android:id="@+id/date"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_height="27dp"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_gravity="center_vertical"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_margin="0dp"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_marginBottom="0dp"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_marginEnd="0dp"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_marginTop="0dp"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:padding="10dp"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:textStyle="bold" />&ndash;&gt;-->
+    <!--&lt;!&ndash;</android.support.v7.widget.CardView>&ndash;&gt;-->
+    <!--<android.support.v7.widget.CardView-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--xmlns:card_view="http://schemas.android.com/apk/res-auto"-->
+    <!--android:id="@+id/card_view"-->
+    <!--android:layout_gravity="center"-->
+    <!--card_view:cardCornerRadius="8dp">-->
+    <!--<TextView-->
+        <!--android:id="@+id/title"-->
+        <!--android:layout_width="368dp"-->
+        <!--android:layout_height="75dp"-->
+        <!--android:text="TextView"-->
+        <!--app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintTop_toTopOf="parent"-->
+        <!--app:layout_constraintVertical_bias="0.0" />-->
+
+    <!--<ImageView-->
+        <!--android:id="@+id/thumburl"-->
+        <!--android:layout_width="368dp"-->
+        <!--android:layout_height="157dp"-->
+        <!--app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintHorizontal_bias="0.0"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintTop_toBottomOf="@+id/title"-->
+        <!--app:layout_constraintVertical_bias="0.0"-->
+        <!--app:srcCompat="@color/blue" />-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/date"-->
+        <!--android:layout_width="368dp"-->
+        <!--android:layout_height="33dp"-->
+        <!--android:text="TextView"-->
+        <!--app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintTop_toBottomOf="@+id/thumburl"-->
+        <!--app:layout_constraintVertical_bias="0.016" />-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/description"-->
+        <!--android:layout_width="368dp"-->
+        <!--android:layout_height="215dp"-->
+        <!--android:text="TextView"-->
+        <!--app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintTop_toBottomOf="@+id/date"-->
+        <!--app:layout_constraintVertical_bias="0.588" />-->
+    <!--</android.support.v7.widget.CardView>-->
+<!--</android.support.constraint.ConstraintLayout>-->

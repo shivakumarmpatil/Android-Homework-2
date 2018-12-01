@@ -18,19 +18,19 @@ import java.util.ArrayList;
 public abstract class NewsItemRoomDatabase extends RoomDatabase {
     public abstract NewsItemDao newsItemDao();
     public ArrayList<NewsItem> newsItems = new ArrayList<>();
-
-    private static NewsItemRoomDatabase.Callback sRoomDatabaseCallback =
-            new NewsItemRoomDatabase.Callback(){
-
-        @Override
-                public void onOpen(@NonNull SupportSQLiteDatabase db)
-        {
-            super.onOpen(db);
+//
+//    private static NewsItemRoomDatabase.Callback sRoomDatabaseCallback =
+//            new NewsItemRoomDatabase.Callback(){
+//
+//        @Override
+//                public void onOpen(@NonNull SupportSQLiteDatabase db)
+//        {
+//            super.onOpen(db);
 //            URL newsSearchUrl = NetworkUtils.buildUrl();
-            new PopulateDbAsync(INSTANCE).execute();
-        }
-
-    };
+//            new PopulateDbAsync(INSTANCE).execute();
+//        }
+//
+//    };
 
     private static volatile NewsItemRoomDatabase INSTANCE;
 
@@ -41,7 +41,8 @@ public abstract class NewsItemRoomDatabase extends RoomDatabase {
                 if (INSTANCE == null) {
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
                             NewsItemRoomDatabase.class, "newsitem_database")
-                            .addCallback(sRoomDatabaseCallback)
+                            .fallbackToDestructiveMigration()
+//                            .addCallback(sRoomDatabaseCallback)
                             .build();
                 }
             }
@@ -50,49 +51,49 @@ public abstract class NewsItemRoomDatabase extends RoomDatabase {
 
     }
 
-    private static class PopulateDbAsync extends AsyncTask<URL, Void, String> {
-
-        private final NewsItemDao mDao;
-        public PopulateDbAsync(NewsItemRoomDatabase db) {
-            mDao = db.newsItemDao();
-        }
-
-        @Override
-        protected String doInBackground(URL... urls) {
-            mDao.clearAll();
-//            NewsItem newsitem1 = new NewsItem("Hello World", "This is a description", "www.google.com", "2018-11-23");
-//            NewsItem newsitem2 = new NewsItem("Hello World 2", "This is a description", "www.google.com", "2018-11-23");
-//            ArrayList newslist = new ArrayList();
-//            newslist.add(newsitem1);
-//            newslist.add(newsitem2);
-//            String newsSearchResults = "";
+//    private static class PopulateDbAsync extends AsyncTask<URL, Void, String> {
+//
+//        private final NewsItemDao mDao;
+//        public PopulateDbAsync(NewsItemRoomDatabase db) {
+//            mDao = db.newsItemDao();
+//        }
+//
+//        @Override
+//        protected String doInBackground(URL... urls) {
+//            mDao.clearAll();
+////            NewsItem newsitem1 = new NewsItem("Hello World", "This is a description", "www.google.com", "2018-11-23");
+////            NewsItem newsitem2 = new NewsItem("Hello World 2", "This is a description", "www.google.com", "2018-11-23");
+////            ArrayList newslist = new ArrayList();
+////            newslist.add(newsitem1);
+////            newslist.add(newsitem2);
+////            String newsSearchResults = "";
+////            try {
+////                newsSearchResults = NetworkUtils.getResponseFromHttpUrl(urls[0]);
+////            } catch (IOException e) {
+////                e.printStackTrace();
+////            }
+////            return newsSearchResults;
+//
 //            try {
-//                newsSearchResults = NetworkUtils.getResponseFromHttpUrl(urls[0]);
+//                mDao.insert(JsonUtils.parseNews(NetworkUtils.getResponseFromHttpUrl(NetworkUtils.buildUrl())));
 //            } catch (IOException e) {
 //                e.printStackTrace();
 //            }
-//            return newsSearchResults;
-
-            try {
-                mDao.insert(JsonUtils.parseNews(NetworkUtils.getResponseFromHttpUrl(NetworkUtils.buildUrl())));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            return null;
-        }
-//
-//        @Override
-//        protected void onPostExecute(String newsSearchResults) {
-//            Log.d("mycode", newsSearchResults);
-//            super.onPostExecute(newsSearchResults);
-////            mProgressBar.setVisibility(View.GONE);
-//            mDao.insert(JsonUtils.parseNews(newsSearchResults));
-////            mAdapter.mNewsItems.addAll(newsItems);
-////            mAdapter.notifyDataSetChanged();
+//            return null;
 //        }
-
-
-    }
+////
+////        @Override
+////        protected void onPostExecute(String newsSearchResults) {
+////            Log.d("mycode", newsSearchResults);
+////            super.onPostExecute(newsSearchResults);
+//////            mProgressBar.setVisibility(View.GONE);
+////            mDao.insert(JsonUtils.parseNews(newsSearchResults));
+//////            mAdapter.mNewsItems.addAll(newsItems);
+//////            mAdapter.notifyDataSetChanged();
+////        }
+//
+//
+//    }
 
 
 

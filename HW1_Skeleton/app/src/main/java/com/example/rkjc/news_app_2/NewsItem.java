@@ -4,7 +4,7 @@ import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
-import android.support.annotation.NonNull;
+import android.net.Uri;
 
 @Entity(tableName = "news_item")
 public class NewsItem {
@@ -24,26 +24,33 @@ public class NewsItem {
     @ColumnInfo(name = "publishedAt")
     private String publishedAt;
 
-    public NewsItem(String title, String description, String url, String publishedAt, int id) {
+    @ColumnInfo(name = "thumburl")
+    private String thumburl;
+
+    public NewsItem(String title, String description, String url, String publishedAt, String thumburl, int id) {
         this.title = title;
         this.description = description;
         this.url = url;
         this.publishedAt = publishedAt;
+        this.thumburl = thumburl;
         this.id = id;
     }
 
 
     @Ignore
-    public NewsItem(String title, String description, String url, String publishedAt) {
+    public NewsItem(String title, String description, String url, String publishedAt, String thumburl) {
         this.title = title;
         this.description = description;
         this.url = url;
         this.publishedAt = publishedAt;
+        this.thumburl = thumburl;
     }
 
     public int getId() {
         return this.id;
     }
+
+    public void setId(int id) {this.id = id; }
 
     public String getTitle() {
         return this.title;
@@ -75,5 +82,15 @@ public class NewsItem {
 
     public void setPublishedAt(String publishedAt) {
         this.publishedAt = publishedAt;
+    }
+
+    public String getThumburl()
+    {
+        return this.thumburl;
+    }
+
+    public void setThumburl(String thumburl)
+    {
+        this.thumburl = thumburl;
     }
 }

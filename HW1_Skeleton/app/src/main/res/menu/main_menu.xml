@@ -6,6 +6,7 @@
         android:id="@+id/action_search"
         android:orderInCategory="1"
         android:title="Refresh"
-        app:showAsAction="ifRoom"/>
+        app:showAsAction="ifRoom"
+        />
 
 </menu>
